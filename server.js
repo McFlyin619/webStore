@@ -2,7 +2,24 @@ var express = require('express');
 var app = express(); // create an app
 
 /******************************************************************/ 
-// Web Server Endpoints
+/* Configurations */
+/******************************************************************/ 
+// enable CORS (For testing purposes only)
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, PUT, POST, PATCH, DELETE, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Rquested-With, Content-Type, Accept");
+    next();
+});
+
+//  Configure body parser to read request payload.
+
+var bparser = require('body-parser');
+app.use(bparser.json());
+
+
+/******************************************************************/ 
+/* Web Server Endpoints */
 /******************************************************************/ 
 
 app.get('/', (req, res) => {
@@ -14,15 +31,30 @@ app.get('/about', (req, res) => {
 });
 
 /******************************************************************/ 
-// Rest API Endpoints
+/* Rest API Endpoints */
 /******************************************************************/ 
 
+var db = [];
+var lastId = 1;
+
+
 app.post('/api/items', (req, res) => {
-    console.log('User wants to save an item');
+    var item = req.body;
+    // asign a unique ID
+    item.id = lastId;
+    lastId += 1;
+    // save item
+    db.push(item);
 
     res.status(201); // 201 = Created!
-    res.send("Cool");
-})
+    res.json(item);
+
+});
+
+app.get('/api/items', (req, res) => {
+    console.log('Client wants the DB');
+    res.json(db);
+});
 
 //  run the server
 // localhost => 127.0.0.1
