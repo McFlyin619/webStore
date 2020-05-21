@@ -41,7 +41,7 @@ app.get('/admin', (req, res) => {
 });
 
 app.get('/about', (req, res) => { 
-    res.send('<h1 style="color:grey">OBrien McQuade</h1>');
+    res.render('about.html');
 });
 
 /******************************************************************/ 
