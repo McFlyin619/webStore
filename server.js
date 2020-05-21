@@ -44,6 +44,11 @@ app.get('/about', (req, res) => {
     res.render('about.html');
 });
 
+app.get('/contact', (req, res) => { 
+    res.render('contact.html');
+});
+
+
 /******************************************************************/ 
 /* Rest API Endpoints */
 /******************************************************************/ 
