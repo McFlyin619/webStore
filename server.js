@@ -5,7 +5,7 @@ var app = express(); // create an app
 /* Configurations */
 /******************************************************************/ 
 // enable CORS (For testing purposes only)
-app.use(function (req, res, next) {
+app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "GET, PUT, POST, PATCH, DELETE, OPTIONS");
     res.header("Access-Control-Allow-Headers", "Origin, X-Rquested-With, Content-Type, Accept");
@@ -17,13 +17,27 @@ app.use(function (req, res, next) {
 var bparser = require('body-parser');
 app.use(bparser.json());
 
+//  Render HTML using EJS
+var ejs = require('ejs');
+
+app.set('views', __dirname + '/public');
+app.engine('html', ejs.renderFile);
+app.set('view engine', ejs);
+
+// To Server static files (css, js, images, pdf, doc, ...)
+app.use(express.static(__dirname +'/public'));
+
 
 /******************************************************************/ 
 /* Web Server Endpoints */
 /******************************************************************/ 
 
 app.get('/', (req, res) => {
-    res.send('Hello World'); //Can add index.html files and so on
+    res.render('index.html');
+});
+
+app.get('/admin', (req, res) => {
+    res.render('admin.html');
 });
 
 app.get('/about', (req, res) => { 
@@ -52,13 +66,12 @@ app.post('/api/items', (req, res) => {
 });
 
 app.get('/api/items', (req, res) => {
-    console.log('Client wants the DB');
     res.json(db);
 });
 
 //  run the server
 // localhost => 127.0.0.1
 // CORS => Cross Origin Resource Sharing
-app.listen(8080, function(){
+app.listen(8080, () => {
     console.log('Server running on http://localhost:8080');
 });
