@@ -22,6 +22,8 @@ img {
 
 .tc {
     text-align: center;
+    text-shadow: 2px 2px 3px white;
+    margin-top: 2rem;
 }
 
 .card {
@@ -58,11 +60,20 @@ ol li a:hover {
   text-decoration: none;
 }
 
+.formH1 {
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--primary);
+}
+
 
 .formContainer {
   border: 2px solid var(--primary);
+  background-color: white;
   border-radius: 15px;
-  padding: 3rem;
+  padding: 2rem;
+  margin-top: 4rem;
   -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(23,162,184,0); 
   box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(23,162,184,0);
+
 }
+
