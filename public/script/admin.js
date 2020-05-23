@@ -47,7 +47,7 @@ function register() {
             // show notification
             $('#success').removeClass('hidden');
             // hide notification
-            setTimeout(function(){
+            setTimeout(() => {
                 $('#success').addClass('hidden');
             },5000);
         },

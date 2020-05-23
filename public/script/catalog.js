@@ -1,39 +1,3 @@
-// items = [
-//     {
-//         code: '1122',
-//         title: 'Samsung TV',
-//         price: 1180,
-//         desc: '65 inch Samsung 4k curved TV',
-//         category: 'Electronics',
-//         image: 'https://c1.neweggimages.com/ProductImage/16C-0003-004J4-S01.jpg'
-//     },
-//     {
-//         code: '2233',
-//         title:'NERF N-Strike Elite Disruptor Blaster',
-//         price:9.99,
-//         desc:'Basic nerf gun',
-//         category:'Toys',
-//         image:'https://target.scene7.com/is/image/Target/GUEST_8e760c54-c129-4bf4-8665-a29d8afbda72?wid=488&hei=488&fmt=pjpeg'
-//     },
-//     {
-//         code:'4455',
-//         title:'T-Shirt',
-//         price: 12.99,
-//         desc:'100% cotton tshirt',
-//         category:'Clothes',
-//         image:'https://shop.totalrocky.com/wp-content/uploads/2019/05/contenders-rocky-legends-tshirt.jpg'
-//     },
-//     {
-//         code:'6677',
-//         title:'iPhone 11',
-//         price: 1000.00,
-//         desc: 'Introducing the iPhone 11 Pro. A transformative triple-camera system that adds tons of capability without complexity.',
-//         category:'Electronics',
-//         image: 'https://target.scene7.com/is/image/Target/GUEST_0cd17c39-1581-46f5-aae6-ab646b1eaae0?wid=488&hei=488&fmt=pjpeg'
-//     },
-    
-// ]; 
-
 var serverURL = 'http://localhost:8080/API/';
 var items = [];
 
